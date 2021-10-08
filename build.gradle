@@ -32,7 +32,9 @@ allprojects {
                 password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
             }
         }
-    }
+        maven {
+            url "https://sdk.smartlook.com/android/release"
+        }    }
 }
 
 task clean(type: Delete) {

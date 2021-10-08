@@ -2,7 +2,7 @@ package com.maxdigi.kawasdktest10;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +17,7 @@ import com.kawasdk.Fragment.fragmentFarmLocation;
 import com.kawasdk.Utils.Common;
 import com.kawasdk.Utils.InterfaceKawaEvents;
 import com.kawasdk.Utils.KawaMap;
+import com.smartlook.sdk.smartlook.Smartlook;
 
 import org.json.JSONObject;
 
@@ -34,7 +35,6 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.kawasdk.R.layout.activity_kawa_home);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.kawaMapView, new fragmentFarmLocation()).commit();
