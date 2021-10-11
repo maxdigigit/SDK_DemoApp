@@ -35,13 +35,17 @@ public class HomeActivity extends AppCompatActivity {
     Button startKawaBtn;
     private static final int PERMISSION_REQUEST_CODE = 100;
 
+    //"Integrating Smartlook (https://www.smartlook.com/)
+    //API Key -
+    //"
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Smartlook.setUserIdentifier("SAMPLE DEMO");
-        //Smartlook.setupAndStartRecording("cb8c6000d31264049b53ee7b55b2a926fdfc668f");
+        // Smartlook.setUserIdentifier("SAMPLE DEMO");
+       // Smartlook.setupAndStartRecording("e2db094332144a7b107aec48a24e2d585e540b93");
         Smartlook.setUserIdentifier("KAWA SDK");
-        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("cb8c6000d31264049b53ee7b55b2a926fdfc668f")
+        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("e2db094332144a7b107aec48a24e2d585e540b93")
                 .setFps(2)
                 .setExperimental(true)
                 .setActivity(null);
@@ -61,7 +65,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void setLocale() {
 
-        String languageToLoad  = "en"; // your language
+        String languageToLoad  = "in"; // your language
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();

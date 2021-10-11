@@ -31,6 +31,8 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
 //    Client's API Key
 //    kawa_TaWxc_Kq-_aVTZb3BunPhg
 
+//    Client New API Key -
+//    kawa_y9zuyWNPjy2k_vGQz5w-pA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +68,7 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
 
     @Override
     public void onkawaSelect(JsonObject data) {
-        Toast.makeText(this, String.valueOf(data), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, String.valueOf(data), Toast.LENGTH_LONG).show();
         Log.e(TAG, "SelectJson: " + data);
     }
 
@@ -77,7 +79,7 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
 
     @Override
     public void onkawaSubmit(String data) {
-            Toast.makeText(this, (CharSequence) data, Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, (CharSequence) data, Toast.LENGTH_LONG).show();
             Log.e(TAG, "SubmitJson: " + data);
 
     }
