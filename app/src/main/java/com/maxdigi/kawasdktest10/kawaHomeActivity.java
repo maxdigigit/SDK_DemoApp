@@ -31,8 +31,10 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
 //    Client's API Key
 //    kawa_TaWxc_Kq-_aVTZb3BunPhg
 
-//    Client New API Key -
+//    Client New API Key 3(I) -
 //    kawa_y9zuyWNPjy2k_vGQz5w-pA
+//    Client New API Key 2 (S) -
+//    kawa_S974OwHCyXfipDmQOjvy2w
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
