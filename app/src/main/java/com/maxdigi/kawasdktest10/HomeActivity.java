@@ -37,18 +37,16 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Locale;
 
-
 public class HomeActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 100;
     Button startKawaBtn;
     EditText nameTxt, addressTxt;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLocale();
         Smartlook.setUserIdentifier("KAWA SDK");
-        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("e2db094332144a7b107aec48a24e2d585e540b93")
+        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("98af52ac8ad0757234a53f3a2c3211dac27780f8")
                 .setFps(2)
                 .setExperimental(true)
                 .setActivity(null);
@@ -72,8 +70,8 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(HomeActivity.this,getResources().getString(R.string.error_address), Toast.LENGTH_LONG).show();
             return;
         }
-        Common.USERNAME = nameTxt.getText().toString();
-        Common.USERADDRESS = addressTxt.getText().toString();
+        Common.USER_NAME = nameTxt.getText().toString();
+        Common.USER_ADDRESS = addressTxt.getText().toString();
         segmentInit(HomeActivity.this);
         Intent intent = new Intent(HomeActivity.this, kawaHomeActivity.class);
         startActivity(intent);
@@ -96,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
     public static void segmentInit(Context context) {
         // Create an analytics client with the given context and Segment write key.
         try {
-            Analytics analytics = new Analytics.Builder(context,"3xEbvDbIX1HG9vHY7cOPLtq6e3DuouA6")
+            Analytics analytics = new Analytics.Builder(context,"A0VyP88AvgsrTTANfo8tNOInf7ia3Np1")
                     // Enable this to record certain application events automatically!
                     .trackApplicationLifecycleEvents()
                     // Enable this to record screen views automatically!
@@ -105,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
             Analytics.setSingletonInstance(analytics);
 
             Properties properties = new Properties();
-            String jString = "{\"user\":{\"name\":" + "\"" + Common.USERNAME + "\"" + ",\"address\":" + "\"" + Common.USERADDRESS + "\"" + "},\"metadata\":{\"message\":\"User Details Saved\"}}";
+            String jString = "{\"user\":{\"name\":" + "\"" + Common.USER_NAME + "\"" + ",\"address\":" + "\"" + Common.USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":\"User Details Saved\"}}";
             JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
             properties.putValue("data", jsonObject);
             Analytics.with(context).track("Map Initialisation", properties);

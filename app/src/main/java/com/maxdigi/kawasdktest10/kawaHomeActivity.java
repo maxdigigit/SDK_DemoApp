@@ -35,6 +35,7 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
 //    kawa_y9zuyWNPjy2k_vGQz5w-pA
 //    Client New API Key 2 (S) -
 //    kawa_S974OwHCyXfipDmQOjvy2w
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,14 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.kawaMapView, new fragmentFarmLocation()).commit();
-        KawaMap.initKawaMap("kawa_RLkNIPN-z3TeWb8AWv089w");
+        KawaMap.initKawaMap("kawa_PHVlzp8lwgcFVWD6gWzdYg");
+        KawaMap.isMergeEnable = true;
+        KawaMap.isEditEnable = false;
+        KawaMap.isFarmDetailsEnable = true;
+        KawaMap.isOtherFarmDetailsEnable = false;
+        KawaMap.isFormEnable = false;
+        KawaMap.isSaveResultEnable = false;
+        KawaMap.isBahasaEnable = false;
     }
     @Override
     public void initKawaMap(boolean isValid) {
