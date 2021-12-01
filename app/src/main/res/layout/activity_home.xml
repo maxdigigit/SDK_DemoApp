@@ -30,6 +30,21 @@
         android:textColorHint="#4F4F4F" />
 
     <EditText
+        android:id="@+id/companyTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/style_edittext_rounded_border"
+        android:gravity="left"
+        android:hint="@string/company"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/mapboxBlack"
+        android:textColorHint="#4F4F4F" />
+
+    <EditText
         android:id="@+id/addressTxt"
         android:layout_width="match_parent"
         android:layout_height="100dp"

@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import androidx.core.content.ContextCompat;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kawasdk.Utils.Common;
+import com.kawasdk.Utils.KawaMap;
 import com.segment.analytics.Analytics;
 import com.segment.analytics.Properties;
 import com.smartlook.sdk.smartlook.Smartlook;
@@ -40,21 +42,18 @@ import java.util.Locale;
 public class HomeActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 100;
     Button startKawaBtn;
-    EditText nameTxt, addressTxt;
+    EditText nameTxt, addressTxt, companyTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLocale();
-        Smartlook.setUserIdentifier("KAWA SDK");
-        Smartlook.SetupOptionsBuilder builder = new Smartlook.SetupOptionsBuilder("98af52ac8ad0757234a53f3a2c3211dac27780f8")
-                .setFps(2)
-                .setExperimental(true)
-                .setActivity(null);
-        Smartlook.setupAndStartRecording(builder.build());
         setContentView(R.layout.activity_home);
         startKawaBtn = findViewById(R.id.startKawaBtn);
         nameTxt = findViewById(R.id.nameTxt);
         addressTxt = findViewById(R.id.addressTxt);
+        companyTxt = findViewById(R.id.companyTxt);
+        companyTxt.setVisibility(View.GONE);
         startKawaBtn.setOnClickListener(viewV -> gotoFarmLocation());
     }
 
@@ -62,62 +61,31 @@ public class HomeActivity extends AppCompatActivity {
         Log.e("TAG>>", nameTxt.getText().toString());
         String nameStr = nameTxt.getText().toString().trim();
         String addressStr = addressTxt.getText().toString().trim();
+        String companyStr = companyTxt.getText().toString().trim();
         if (nameStr.isEmpty()) {
-            Toast.makeText(HomeActivity.this,getResources().getString(R.string.error_name), Toast.LENGTH_LONG).show();
+            Toast.makeText(HomeActivity.this, getResources().getString(R.string.error_name), Toast.LENGTH_LONG).show();
             return;
         }
-        if (addressStr.isEmpty()) {
-            Toast.makeText(HomeActivity.this,getResources().getString(R.string.error_address), Toast.LENGTH_LONG).show();
-            return;
-        }
-        Common.USER_NAME = nameTxt.getText().toString();
-        Common.USER_ADDRESS = addressTxt.getText().toString();
-        segmentInit(HomeActivity.this);
-        Intent intent = new Intent(HomeActivity.this, kawaHomeActivity.class);
-        startActivity(intent);
-
-//        } else {
-//            AlertDialog alertDialog = new AlertDialog.Builder(HomeActivity.this).create();
-//            alertDialog.setTitle(getResources().getString(com.kawasdk.R.string.app_name));
-//            alertDialog.setMessage("Please Enter Name and Address");
-//            alertDialog.setIcon(com.kawasdk.R.mipmap.ic_launcher);
-//            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int which) {
-//                    alertDialog.hide();
-//                }
-//            });
-//            alertDialog.show();
-//
+//        else if (companyStr.isEmpty()) {
+//            Toast.makeText(HomeActivity.this,getResources().getString(R.string.error_company), Toast.LENGTH_LONG).show();
+//            return;
 //        }
-    }
-
-    public static void segmentInit(Context context) {
-        // Create an analytics client with the given context and Segment write key.
-        try {
-            Analytics analytics = new Analytics.Builder(context,"A0VyP88AvgsrTTANfo8tNOInf7ia3Np1")
-                    // Enable this to record certain application events automatically!
-                    .trackApplicationLifecycleEvents()
-                    // Enable this to record screen views automatically!
-                    .recordScreenViews()
-                    .build();
-            Analytics.setSingletonInstance(analytics);
-
-            Properties properties = new Properties();
-            String jString = "{\"user\":{\"name\":" + "\"" + Common.USER_NAME + "\"" + ",\"address\":" + "\"" + Common.USER_ADDRESS + "\"" + "},\"metadata\":{\"message\":\"User Details Saved\"}}";
-            JsonObject jsonObject = JsonParser.parseString(jString).getAsJsonObject();
-            properties.putValue("data", jsonObject);
-            Analytics.with(context).track("Map Initialisation", properties);
-
-        } catch (Exception e) {
-            Log.e("catch-error", String.valueOf(e.getMessage()));
-            Toast.makeText(context, String.valueOf(e.getMessage()), Toast.LENGTH_LONG).show();
+        else if (addressStr.isEmpty()) {
+            Toast.makeText(HomeActivity.this, getResources().getString(R.string.error_address), Toast.LENGTH_LONG).show();
+            return;
+        } else {
+            Common.USER_NAME = nameTxt.getText().toString();
+            Common.USER_ADDRESS = addressTxt.getText().toString();
+            Common.USER_COMPANY = companyTxt.getText().toString();
+            //segmentInit(HomeActivity.this);
+            Intent intent = new Intent(HomeActivity.this, kawaHomeActivity.class);
+            startActivity(intent);
         }
     }
-
 
     public void setLocale() {
 
-        String languageToLoad = "en"; // use in fo bahasha lanuage.
+        String languageToLoad = "in"; // use in fo bahasha lanuage.
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
