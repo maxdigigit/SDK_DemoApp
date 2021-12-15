@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             Common.USER_NAME = nameTxt.getText().toString();
             Common.USER_ADDRESS = addressTxt.getText().toString();
-            Common.USER_COMPANY = companyTxt.getText().toString();
+//            Common.USER_COMPANY = companyTxt.getText().toString();
             //segmentInit(HomeActivity.this);
             Intent intent = new Intent(HomeActivity.this, kawaHomeActivity.class);
             startActivity(intent);
@@ -85,7 +85,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void setLocale() {
 
-        String languageToLoad = "in"; // use in fo bahasha lanuage.
+        String languageToLoad = "en"; // use in fo bahasha lanuage.
         Locale locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();

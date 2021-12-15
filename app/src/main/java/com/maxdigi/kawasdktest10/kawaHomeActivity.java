@@ -63,11 +63,11 @@ public class kawaHomeActivity extends AppCompatActivity implements InterfaceKawa
             KawaMap.isEditEnable = false;
             KawaMap.isMergeEnable = true;
             KawaMap.isFarmDetailsEnable = true;
-            KawaMap.isOtherFarmDetailsEnable = true;
+            KawaMap.isOtherFarmDetailsEnable = false;
             KawaMap.isFormEnable = false;
             KawaMap.isSaveResultEnable = true;
-            KawaMap.isBahasaEnable = true;
-            KawaMap.isFlyToLocationEnable =false;
+            KawaMap.isBahasaEnable = false;
+            KawaMap.isFlyToLocationEnable = false;
 
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(kawaHomeActivity.this).create();

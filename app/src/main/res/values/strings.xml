@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Kawa Demo App</string>
 
-    <string name="kawa_api_key" translatable="false">kawa_TaWxc_Kq-_aVTZb3BunPhg</string>
-    <string name="smartlook_api_key" translatable="false">627da9d9178be1e4d7e3b5e54404d34f3bbf1877</string>
-    <string name="segment_api_key" translatable="false">qepLGVfjok6wHcrsoFLY51ZUJJ5d0nbE</string>
+    <string name="kawa_api_key" translatable="false">kawa_S974OwHCyXfipDmQOjvy2w</string>
+    <string name="smartlook_api_key" translatable="false">98af52ac8ad0757234a53f3a2c3211dac27780f8</string>
+    <string name="segment_api_key" translatable="false">8hLikTWrDZALqJhnHvDIUk39J4X4F4Wu</string>
     <string name="welcome">Welcome</string>
     <string name="start_kawa_map">Start Kawa Map</string>
     <string name="enter_details">Enter Details</string>
     <string name="name">Name</string>
     <string name="address">Address</string>
-    <string name="error_name">Please enter name </string>
+    <string name="error_name">Please enter name</string>
     <string name="error_address">Please enter address</string>
     <string name="company">Company</string>
     <string name="error_company">Please enter comapny name</string>
